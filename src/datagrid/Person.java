@@ -6,6 +6,8 @@ public class Person {
 	private String age;
     private String email;
     
+    private String birthday;
+    
     public Person(String name,String sex,String age,String email) {
 		// TODO Auto-generated constructor stub
     	this.name=name;
