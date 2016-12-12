@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>遍历同胞</title>
+       <script src="../../js/easyui/jquery.min.js"></script>
+       <script type="text/javascript">
+                $(document).ready(function(){
+                	$("#1").click(function(){//返回被选元素的所有同胞元素。
+                		$("h2").siblings().css({"color":"red","border":"2px solid red"});
+                	});
+                	$("#2").click(function(){//返回被选元素的所有p同胞元素。
+                		$("h2").siblings("p").css({"color":"red","border":"2px solid red"});
+                	});
+                	$("#3").click(function(){//返回被选元素的下一个同胞元素。
+                		$("h2").next().css({"color":"red","border":"2px solid red"});
+                	});
+                	$("#4").click(function(){//返回被选元素的所有跟随的同胞元素。
+                		$("h2").nextAll().css({"color":"red","border":"2px solid red"});
+                	});
+                	$("#5").click(function(){//返回介于两个给定参数之间的所有跟随的同胞元素。
+                		$("h2").nextUntil("h5").css({"color":"red","border":"2px solid red"});
+                	});
+                	//prev(), prevAll() 以及 prevUntil() 方法的工作方式与next的方法类似，只不过方向相反而已：它们返回的是前面的同胞元素
+                });
+       
+       </script>
+       
+       <style type="text/css">
+              .sib *{
+                 display: block;
+                 border: 2px solid lightgrey;
+                 padding: 5px;
+                 margin: 15px;
+                 color:lightgrey;
+              }
+       </style>
+</head>
+<body>   
+       <div class="sib">
+       <div style="width: 500px;">div(父元素)
+             <p>p</p>
+             <span>span</span>
+             <h2>h2</h2>
+             <h3>h3</h3>
+             <p>p</p>
+             <h4>h4</h4>
+             <h5>h5</h5>
+             <h6>h6</h6>
+       </div>
+       </div>
+       <button id="1">显示所有同胞元素</button>
+       <button id="2">显示所有p同胞元素</button>
+       <button id="3">显示下一个同胞元素</button>
+       <button id="4">显示所有跟随的同胞元素。</button>
+       <button id="5">显示指定区域的所有跟随的同胞元素。</button>
+</body>
+</html>

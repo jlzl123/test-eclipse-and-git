@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+       <script src="../../js/easyui/jquery.min.js"></script>
+       <script type="text/javascript">
+               var jq=$.noConflict();//noConflict() 方法会释放 $ 标识符的控制
+               jq(document).ready(function(){
+            	   jq("#1").click(function(){
+            		   alert("noConflict() 方法释放 $ 标识符的控制");
+            	   });
+               });
+       </script>
+</head>
+<body>
+      <button id="1">释放会 $ 标识符的控制</button>
+</body>
+</html>

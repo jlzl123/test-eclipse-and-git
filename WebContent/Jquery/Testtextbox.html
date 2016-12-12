@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/easyui/jquery.min.js"></script>
+<script src="../js/easyui/jquery.easyui.min.js"></script>
+<script src="../js/easyui/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="../js/easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../js/easyui/themes/default/easyui.css">
+<script type="text/javascript">
+    $(document).ready(function(){
+     	$("#abc").textbox("setValue","abc");
+     	var value=$("#abc").val();
+    	alert(value);
+    })
+</script>
+</head>
+<body>
+    <input id="abc" class="easyui-textbox" type="text">
+</body>
+</html>

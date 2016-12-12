@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<link rel="stylesheet" type="text/css"
+	href="../../js/easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css"
+	href="../../js/easyui/themes/default/easyui.css">
+<script src="../../js/easyui/jquery.min.js"></script>
+<script src="../../js/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+      datagridGetMap();
+ //      showDatagrid();
+ //       getDatagrid();
+});
+
+datagridGetMap=function(){
+	 $("#hh").datagrid({
+		 method:"get",
+		 url:"/easyui/DatagridTest1",//datagrid自动获得返回json数据初始表格
+		 columns:[[ 	      
+ 	              {field:'name',title:'姓名',width:80,align:'center'},
+ 	              {field:'sex',title:'性别',width:80,align:'center'},
+ 	              {field:'age',title:'年龄',width:100,sortable:true,align:'center'},
+ 	              {field:'email',title:'邮箱',width:60,align:'center'}
+ 	          ]]
+	 });
+	 
+}
+//ajax请求数据
+showDatagrid=function(){
+	$.ajax({
+		type:"get",
+//		data:发送到服务器的数据
+//      dataType:
+		url:"/easyui/DatagridTest1",
+		success:function(data){
+			alert(data);
+		}
+	});
+}
+//get请求数据
+getDatagrid=function(){
+	$.get("/easyui/DatagridTest1",function(data){
+		alert(data);
+	});
+}	
+</script>
+<body>
+	<table id="hh"></table>
+</body>
+</html>

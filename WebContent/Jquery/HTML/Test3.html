@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>删除元素</title>
+         <script src="../../js/easyui/jquery.min.js"></script>
+         <script type="text/javascript">
+                 $(document).ready(function(){
+                	 $("#1").click(function(){
+                		 $("div").remove();//删除被选元素（及其子元素）
+                	 });
+                	 $("#2").click(function(){
+                		 $("div").empty();//从被选元素中删除子元素
+                	 });
+                	 $("#3").click(function(){
+                		 $("p").remove(".remove");
+                	 });//remove() 方法也可接受一个参数，允许您对被删元素进行过滤。该参数可以是任何 jQuery选择器的语法,empty不行
+                 });
+                 
+         </script>
+</head>
+<body>
+         <div style="width: 250px;height: 130px;background: yellow;border: 1px solid;">
+                                         这是 div 中的一些文本。
+             <p class="remove">这是在 div 中的一个段落。</p>
+             <p>这是在 div 中的另外一个段落。</p>
+         </div>
+         <button id="1">移除div元素</button>
+         <button id="2">清空div元素</button>
+         <button id="3">清空class为removed的p元素</button>
+</body>
+</html>

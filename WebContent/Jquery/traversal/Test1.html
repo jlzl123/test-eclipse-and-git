@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>遍历祖先、后代</title>
+       <script src="../../js/easyui/jquery.min.js"></script>
+       <script type="text/javascript">
+              $(document).ready(function(){//parent()返回被选元素的直接父元素
+            	  $("#1").click(function(){
+            		  $("span").parent().css({"color":"red","border":"2px solid red"}); 
+            	  });
+                  $("#2").click(function(){//parents()返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)。
+                	  $("span").parents().css({"color":"red","border":"2px solid red"});
+                  });
+                  $("#3").click(function(){//parents()返回介于两个给定元素之间的所有祖先元素。
+                	  $("span").parentsUntil("div").css({"color":"red","border":"2px solid red"});
+                  });
+                  $("#4").click(function(){//children()返回被选元素的所有直接子元素
+                	  $("div").children().css({"color":"red","border":"2px solid red"});  
+                  });
+                  $("#5").click(function(){//使用可选参数来过滤对子元素的搜索。
+                	  $("div").children("div").css({"color":"red","border":"2px solid red"});  
+                  });
+                  $("#6").click(function(){//被选元素的后代元素，一路向下直到最后一个后代。
+                	  $("div").find("*").css({"color":"red","border":"2px solid red"});  
+                  });
+                  $("#7").click(function(){//返回属于 <div> 后代的所有 <span> 元素
+                	  $("div").find("span").css({"color":"red","border":"2px solid red"});  
+                  });
+              });
+       </script>
+       
+       <!-- * 选中class是ancertors的div里的所有元素 -->
+       <style type="text/css">
+               .ancestors *{
+                    display: block;
+                    border: 2px solid lightgrey;    
+                    padding: 5px;
+                    margin: 15px;
+                    color: lightgrey;
+               }
+       </style>
+</head>
+<body>
+       <div class="ancestors">
+       <div style="width: 500px;">div(曾祖父元素)
+            <ul>ul(祖父元素)
+                <li>li(父元素)
+                    <span>span</span>
+                </li>
+            </ul>
+       </div>
+       </div>
+       <button id="1">显示父元素</button>
+       <button id="2">显示所有祖先元素</button>
+       <button id="3">显示指定区域的所有祖先元素</button>
+       <button id="4">显示div的直接子元素</button>
+       <button id="5">显示div指定的直接子元素</button>
+       <button id="6">显示div所有后代元素</button>
+       <button id="7">显示div所有span元素</button>
+</body>
+</html>

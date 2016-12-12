@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>搜索过滤</title>
+     <script src="../../js/easyui/jquery.min.js"></script>
+     <script src="../../js/easyui/jquery-ui.js"></script>
+     <link rel="stylesheet" href="../../css/jquery-ui.css"/><!-- 必需导入css -->
+     <script type="text/javascript">
+     //jQuery Autocomplete 插件根据用户输入值进行搜索和过滤,让用户快速选择
+            $(function(){
+            	var availableTags = [
+            	                     "ActionScript",
+            	                     "AppleScript",
+            	                     "Asp",
+            	                     "BASIC",
+            	                     "C",
+            	                     "C++",
+            	                     "Clojure",
+            	                     "COBOL",
+            	                     "ColdFusion",
+            	                     "Erlang",
+            	                     "Fortran",
+            	                     "Groovy",
+            	                     "Haskell",
+            	                     "Java",
+            	                     "JavaScript",
+            	                     "Lisp",
+            	                     "Perl",
+            	                     "PHP",
+            	                     "Python",
+            	                     "Ruby",
+            	                     "Scala",
+            	                     "Scheme"
+            	                   ];
+            	$("#tags").autocomplete({
+            		source:availableTags
+            	});
+ 
+            });
+     </script>
+</head>
+<body>
+     <input id="tags" type="text">
+</body>
+</html>

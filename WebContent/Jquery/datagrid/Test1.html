@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js创建数据表格</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../../js/easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../../js/easyui/themes/default/easyui.css">
+<script src="../../js/easyui/jquery.min.js"></script>
+<script src="../../js/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+    	 $(document).ready(function(){
+    		 datagridTest();
+
+    	 });
+    	 
+    	 datagridTest=function(){
+    		 $("#tt").datagrid({
+            	 url:"datagrid_data.json",
+            	 columns:[[//columns列数要大于3
+            	              {field:'itemid',title:'Item ID',rowspan:2,width:80,sortable:true},
+            	              {field:'productid',title:'Product ID',rowspan:2,width:80,sortable:true},
+            	              {title:'Item Details',colspan:4}
+            	          ],[
+            	              {field:'listprice',title:'List Price',width:80,align:'right',sortable:true},
+            	              {field:'unitcost',title:'Unit Cost',width:80,align:'right',sortable:true},
+            	              {field:'attr1',title:'Attribute',width:100},
+            	              {field:'status',title:'Status',width:60}
+            	          ]]
+        	 });
+    	 }
+    	 
+    	
+     
+</script>
+<body>
+   <table id="tt" class="easyui-datagrid"></table>
+</body>
+</html>

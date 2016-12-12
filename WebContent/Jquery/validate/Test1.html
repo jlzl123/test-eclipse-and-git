@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery表单验证</title>
+       <script src="../../js/easyui/jquery.min.js"></script>
+       <script src="../../js/easyui/jquery.validate.js"></script>
+       <script src="../../js/easyui/messages_zh.js"></script>
+       <script type="text/javascript">
+               //设置默认属性
+               $.validator.setDefaults({
+            	   submitHandler:function(){
+            		   alert("提交事件!");
+            		   from.submit();
+            	   }
+               });
+               
+               $().ready(function(){//// 在键盘按下并释放及提交后验证提交表单
+            	   $("#commentForm").validate();//用jquery验证函数验证表单
+               });
+       </script>
+       <!-- 设置错误信息样式 -->
+       <style type="text/css">
+               .error{
+                    color:red;
+               }
+       </style>
+</head>
+<body>
+      <!-- 表单需要写明name，required 必填项,验证类型和表单类型一致-->
+      <fieldset>
+                <legend>输入您的名字，邮箱，URL，备注</legend>
+                <form id="commentForm" action="">
+                      <p>
+                          <label>Name (必需, 最小两个字母)</label><!--minlength是jquery自定义属性，最小长度  -->
+                          <input id="name" name="name" type="text" minlength="2" required/>
+                      </p>
+                      <p>
+                          <label>E-Mail (必需)</label>
+                          <input id="email" name="email" type="email" required/>
+                      </p>
+                      <p>
+                          <label>URL (可选)</label>
+                          <input id="url" name="url" type="url"/>
+                      </p>
+                      <p>
+                          <label>备注(必需)</label>
+                          <textarea id="comment" name="comment" required></textarea>
+                      </p>
+                      <p>
+                          <input id="submit" type="submit"/>
+                      </p>
+                </form>
+      </fieldset>
+</body>
+</html>

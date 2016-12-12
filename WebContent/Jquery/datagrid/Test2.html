@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>datagrid数据表格</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../../js/easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../../js/easyui/themes/default/easyui.css">
+<script src="../../js/easyui/jquery.min.js"></script>
+<script src="../../js/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+        var select={
+    		  selectRowData:[]
+          };
+      $(document).ready(function(){
+    		  getSelectData();
+          
+    	  $("button").click(function(){
+    		  var rows=select.selectRowData.length;
+    		  alert(rows)
+    	  });
+      });
+      getSelectData=function(){
+    	  $("#tt").datagrid({
+    		  //数据表格行被选中时触发
+    		  onSelect:function(rowIndex,rowData){
+    			  //stringify用于从一个对象解析出字符串
+    			  var rowStr=JSON.stringify(rowData);
+    			  //没有找到匹配元素时它返回-1,否则返回0
+    			  var nums=$.inArray(rowStr,select.selectRowData);
+    			  if(nums==-1){
+    				  select.selectRowData.push(rowStr);
+ //   				  alert("+");
+    			  }
+    		  },
+    	      onUnselect:function(rowIndex,rowData){
+    	    	  var rowStr=JSON.stringify(rowData);
+    			  var nums=$.inArray(rowStr,select.selectRowData);
+    			  if(nums>-1){
+    				//splice删除第nums个元素
+    				  select.selectRowData.splice(nums, 1);
+ //   				alert("-");
+    			  }
+    	      }
+    	  })
+      }
+</script>
+<body>
+    <table id="tt" class="easyui-datagrid" style="width: 600px;height: 250px"
+           url="datagrid_data.json" title="DataGrid with Toolbar" 
+           iconCls="icon-save" toolbar="#tb">
+           <thead>
+                  <tr>
+                      <th field="ck" checkbox="true"></th>
+                      <th field="itemid" width="80">Item ID</th>
+                      <th field="productid" width="80">Product ID</th>
+                      <th field="listprice" width="80" align="right">List Price</th>
+                      <th field="unitcost" width="80" align="right">Unit Cost</th>
+                      <th field="attr1" width="80">Attribute</th>
+                      <th field="status" width="80" align="center">Status</th>
+                  </tr>
+           </thead>
+    </table>
+    <div id="tb">
+          <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:alert('Add')">Add</a>
+          <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true" onclick="javascript:alert('Cut')">Cut</a>
+	   	  <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:alert('Save')">Save</a>
+
+    </div>
+    <button>显示选中行数</button>
+</body>
+</html>

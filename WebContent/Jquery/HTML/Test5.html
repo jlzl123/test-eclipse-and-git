@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css()</title>
+          <script src="../../js/easyui/jquery.min.js"></script>
+          <script type="text/javascript">
+                  $(document).ready(function(){
+                	  $("#1").click(function(){
+                	         alert($("p").css("background-color"));
+                	  });
+                	  $("#2").click(function(){//设置或返回被选元素的一个或多个样式属性。
+             	         $("p").css({"background-color":"yellow","font-size":"200%"});
+             	  });
+                  });
+          </script>
+</head>
+<body>
+       <h2>这是一个标题</h2>
+       <p style="background-color:#ff0000">这是一个段落。</p>
+       <p style="background-color:#00ff00">这是一个段落。</p>
+       <p style="background-color:#0000ff">这是一个段落。</p>
+       <p>这是一个段落。</p>
+       <button id="1">返回 p元素的 background-color</button>
+       <button id="2">为 p元素设置多个样式</button>
+</body>
+</html>

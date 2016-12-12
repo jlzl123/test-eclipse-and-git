@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>添加元素</title>
+       <script src="../../js/easyui/jquery.min.js"></script>
+       <script type="text/javascript">
+               $(document).ready(function(){
+            	   $("#1").click(function(){
+            		   $("ol").append("<li>789</li>");//在被选元素的结尾插入内容
+            	   });
+            	   $("#2").click(function(){
+            		   $("ol").append("789");
+            	   });
+            	   $("#3").click(function(){
+            		   $("ol").prepend("000");//在被选元素的开头插入内容
+            	   });
+            	   $("#4").click(function(){
+            		   $("ol").before("之前");//在被选元素之前插入内容。
+            	   });
+            	   $("#5").click(function(){
+            		   $("ol").after("<b>之后</b>");//在被选元素之后插入内容。
+            	   });
+               });
+       </script>
+</head>
+<body>
+     <button id="1">添加列表项</button>
+     <button id="2">添加文本</button>
+     <button id="3">在开头添加文本</button>
+     <button id="4">之前插入</button>
+     <button id="5">之后插入</button>
+     <ol>
+         <li>123</li>
+         <li>456</li>
+     </ol>
+</body>
+</html>

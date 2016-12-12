@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>load()</title>
+       <script src="../../js/easyui/jquery.min.js"></script>
+       <script type="text/javascript">
+               $(document).ready(function(){
+            	   $("#1").click(function(){
+            		   $("#div1").load("Test.txt");//load() 方法从服务器加载数据，并把返回的数据放入被选元素中。
+            	   });
+            	   $("#2").click(function(){
+            		   $("#div1").load("Test.txt p");//可以把 jQuery 选择器添加到 URL 参数。
+            	   });
+            	   $("#3").click(function(){//回调函数可以设置不同的参数
+            		   $("#div1").load("Test.txt",function(responeTxt,statustxt,xhr){
+            			   if(statustxt=="success")  //responseTxt - 包含调用成功时的结果内容
+            				   alert("外部内容加载成功!");//statusTXT - 包含调用的状态
+            			   if(statuxtxt=="error")    //xhr - 包含 XMLHttpRequest 对象
+            				   alert("Error:"+xhr.status+":"+xhr.statusText);
+            		   });
+            	   });
+               });
+       </script>
+</head>
+<body>
+      <div id="div1"><h2>使用 jQuery AJAX 修改文本内容</h2></div>
+      <button id="1">获取外部内容</button>
+      <button id="2">URL带选择器</button>
+      <button id="3">回调函数</button>
+</body>
+</html>

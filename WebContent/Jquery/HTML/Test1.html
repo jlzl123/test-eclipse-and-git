@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>捕获、设置</title>
+           <script src="../../js/easyui/jquery.min.js"></script><!-- ../表示距离根目录WebContent一级，两个就两级 -->
+           <script type="text/javascript">
+                  $(document).ready(function(){
+                	  $("#a").click(function(){
+                		  alert("Text:"+$("p").text());//text() - 设置或返回所选元素的文本内容
+                	  });
+                	  $("#b").click(function(){
+                		  alert("HTML:"+$("p").html());//html() - 设置或返回所选元素的内容（包括 HTML 标记）
+                	  });
+                	  $("#c").click(function(){//val() - 设置或返回表单字段的值
+                		  alert("值:"+$(":text").val());//type为text的input元素
+                	  });
+                	  $("#d").click(function(){
+                		  alert("id:"+$("#c").attr("id"));//attr() 方法也用于设置/改变属性值。允许您同时设置多个属性。
+                	  });
+                	  $("#1").click(function(){
+                		  $("p").text("<b>Hello</b>");
+                	  });
+                	  $("#2").click(function(){
+                		  $("p").html("<b>Hello</b>");
+                	  });
+                	  $("#3").click(function(){
+                		  $("input").val("<b>Hello</b>");
+                	  });
+                	  $("#4").click(function(){
+                		  $("input").attr("type","button");
+                	  });
+                	  
+                	  
+                	  
+                	  $("#b1").click(function(){
+                		  $("#a1").text(function(i,origText){//i:被选元素列表中当前元素的下标，origText:原始（旧的）值。
+                			  return "旧文本："+origText+" 新文本:<b>Hello<b>(index :"+i+")";
+                		  });
+                	  });
+                	  $("#b2").click(function(){
+                		  $("#a2").html(function(i,origHtml){
+                			  return "旧HTML："+origHtml+" 新HTML:<b>Hello<b>(index :"+i+")";
+                		  });
+                	  });
+                  });
+           </script>
+</head>
+<body>
+           <button id="a">显示文本</button>
+           <button id="b">显示HTML</button>
+           <button id="c">显示值</button>
+           <button id="d">显示属性的值</button>
+           <p>这是段落中的<b>粗体</b>文本</p>
+           <input type="text" value="abc"/><br/>
+           <button id="1">设置文本</button>
+           <button id="2">设置HTML</button>
+           <button id="3">设置值</button>
+           <button id="4">设置属性的值</button><br/><br/>
+****************************text()、html() 以及 val() 的回调函数****************************************
+      <br/><a id="a1">这是段落中的<b>粗体</b>文本</a><br/>
+           <a id="a2">这是另一端段落中的<b>粗体</b>文本</a><br/>
+           <button id="b1">显示 新/旧 文本</button>  
+           <button id="b2">显示 新/旧 HTML</button>  
+</body>
+</html>

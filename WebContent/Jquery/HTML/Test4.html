@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css类</title>
+       <script src="../../js/easyui/jquery.min.js"></script>
+       <script type="text/javascript">
+               $(document).ready(function(){
+            	   $("#1").click(function(){
+            		   $("h1,h2,p").addClass("blue");//向被选元素添加一个或多个class属性
+            		   $("div").addClass("important");
+            	   });
+            	   $("#2").click(function(){
+            		   $("p").addClass("important blue");
+            	   });
+            	   $("#3").click(function(){
+            		   $("p").removeClass("important blue");//从被选元素删除一个或多个类
+            	   });
+            	   $("#4").click(function(){
+            		   $("h1,h2,p").toggleClass("blue");//对被选元素进行添加/删除类的切换操作
+            		   $("div").toggleClass("important");
+            	   });
+               });
+       </script>
+       
+       
+       <style type="text/css">
+              .important{
+                   font-weight: bold;//粗体
+                   font-size: xx-large;//
+              }
+              .blue{
+                   color: blue;  
+              }
+       </style>
+</head>
+<body>
+       <h1>标题1</h1>
+       <h2>标题2</h2>
+       <p>这是一个段落。</p>
+       <p>这是一个另段落。</p>
+       <div>这是一些重要的文本!</div><br/>
+       <button id="1">为元素添加class属性</button>
+       <button id="2">为元素添加多个类</button>
+       <button id="3">从元素中移除class</button>
+       <button id="4">切换class</button>
+</body>
+</html>

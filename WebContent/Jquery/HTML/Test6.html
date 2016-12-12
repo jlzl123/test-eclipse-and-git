@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery 尺寸</title>
+        <script src="../../js/easyui/jquery.min.js"></script>
+        <script type="text/javascript">
+                $(document).ready(function(){
+                	$("#1").click(function(){
+                		var div=$("div");
+                		var width=div.width();//设置或返回元素的宽度（不包括内边距、边框或外边距）。
+                		var height=div.height();//设置或返回元素的高度（不包括内边距、边框或外边距）。
+                		var innerWidth=div.innerWidth();//返回元素的宽度（包括内边距）。
+                		var innerHeight=div.innerHeight();//返回元素的高度（包括内边距）。
+                		var outerWidth=div.outerWidth();//返回元素的宽度（包括内边距和边框）
+                		var outerHeight=div.outerHeight();//返回元素的高度（包括内边距和边框）。
+                		var text="Width of div : "+width+"<br/>"+"Height of div : "+height+"<br/>"
+                		         +"div宽度，包含内边距："+innerWidth+"<br/>"+"div高度，包含内边距："+innerHeight
+                		         +"<br/>"+"div宽度，包含内边距和边框："+outerWidth+"<br/>"+"div高度，包含内边距和边框："
+                		         +outerHeight;
+                		div.html(text);
+                	});
+                });
+        </script>
+</head>
+<body>
+       <div style="width: 300px;height: 100px;background: lightblue;border: 1px solid blue;
+            padding: 10px;margin: 10px;"></div>
+            <!-- padding div内文本区距离左边框和上边框的距离,即内边距
+                 margin  div距离浏览器左边框和上边框的距离，即外边距  -->
+       <button id="1">显示 div 元素的尺寸</button>
+       
+</body>
+</html>

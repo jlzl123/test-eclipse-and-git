@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>自定义校验规则</title>
+       <script src="../../js/easyui/jquery.min.js"></script>
+       <script src="../../js/easyui/jquery.validate.js"></script>
+       <script src="../../js/easyui/messages_zh.js"></script>
+       <script type="text/javascript">
+                $.validator.setDefaults({
+                	submitHandler:function(){
+                		alert("提交事件!");
+                	}
+                });
+                $().ready(function(){
+                	$("#commentForm").validate({
+                		rules:{
+                			firstname:"required",//匹配表单项name
+                			lastname:"required",
+                			username:{
+                				required:true,
+                				minlength:2
+                			},
+                			password:{
+                				required:true,
+                				minlength:5,
+                			},
+                			comfire_password:{
+                				required:true,
+                				minlength:5,
+                				equalTo:"#password"
+                			},
+                			email:{
+                				required:true,
+                				email:true
+                			},
+                			agree:"required",
+                			"topic[]":{
+                				required:"#newsletter:checked",//newsletter被选中状态为true，要校验
+                				minlength:2
+                			},
+                		},
+                		messages:{
+                			firstname:"请输入您的名字",
+                			lastname: "请输入您的姓氏",
+                			username:{
+                				required:"请输入您的用户名",
+                				minlength:"用户名至少由两个字母组成"
+                			},
+                			password:{
+                				required: "请输入密码",
+                				minlength:"密码长度不能小于 5 个字母",
+                			},
+                			comfire_password:{
+                				required:"请输入密码",
+                				minlength:"密码长度不能小于 5 个字母",
+                				equalTo:"两次密码输入不一致"
+                			},
+                			email:"请输入一个正确的邮箱",
+                			agree:"请接受我们的声明",
+                			topic:"请选择两个主题"
+                		}
+                	});
+                	
+                	$("#newsletter").click(function(){
+                		//判断复选框是否被选中
+                		var c=$("#newsletter").is(":checked");  
+                    	if(c)
+                    		$("#fieldset2").css("display","block");
+                    	if(!c)
+                    		$("#fieldset2").css("display","none");
+                	});
+                });
+       </script>
+       <style type="text/css">
+              .error{
+                  color:red;
+              }
+       </style>
+</head>
+<body>
+      <fieldset>
+                <legend>完整表单验证</legend>
+                <form id="commentForm" action="">
+                      <p>     <!-- for 属性规定 label 与哪个表单元素绑定,值为id -->
+                          <label for="firstname">名字</label>
+                          <input id="firstname" name="firstname" type="text"/>
+                      </p>
+                      <p>
+                          <label for="lastname">姓氏</label>
+                          <input id="lastname" name="lastname" type="text"/>
+                      </p>
+                      <p>
+                          <label for="username">用户名</label>
+                          <input id="username" name="username" type="text"/>
+                      </p>
+                      <p>
+                          <label for="password">密码</label>
+                          <input id="password" name="password" type="password"/>
+                      </p>
+                      <p>
+                          <label for="comfire_password">密码</label>
+                          <input id="comfire_password" name="comfire_password" type="password"/>
+                      </p>
+                      <p>
+                          <label>E-Mail</label>
+                          <input id="email" name="email" type="email"/>
+                      </p>               
+                      <p>
+                          <label for="agree">请同意我们的声明</label>
+                          <input id="agree" name="agree" type="checkbox">
+                      </p>
+                      <p>
+                          <label for="newsletter">我乐意接受新信息</label>
+                          <input id="newsletter" name="newsletter" type="checkbox">
+                      </p>
+                      <fieldset id="fieldset2" style="display: none">
+                                <legend>主题 (至少选择两个) - 注意：如果没有勾选“我乐意接收新信息”以下选项会隐藏，但我们这里作为演示让它可见</legend>
+                                <label for="topic_marketflash">
+                                       <input id="topic_marketflash" name="topic[]" type="checkbox"/>MarketFlash
+                                </label>
+                                <label for="topic_fuzz">
+                                       <input id="topic_fuzz" name="topic[]" type="checkbox"/>Lastes Fuzz
+                                </label>
+                                <label for="topic_digester">
+                                       <input id="topic_digester" name="topic[]" type="checkbox"/>Mail list digester
+                                </label>
+                                <label for="topic" class="error" style="display: none">至少选择两个</label>
+                      </fieldset>
+                      <p>
+                          <input type="submit"/>
+                      </p>
+                </form>
+      </fieldset>
+</body>
+</html>

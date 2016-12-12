@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>判断复选框是否选中</title>
+       <script src="../js/easyui/jquery.min.js"></script>
+       <script type="text/javascript">
+                $(document).ready(function(){
+                	$("#1").click(function(){
+                		alert($("#test1").attr("checked"));
+                	});
+                	$("#2").click(function(){
+                		alert($("#test2").attr("checked"));//attr()取得DOM节点属性的值
+                	});
+                	$("#3").click(function(){
+                		alert($("#test1").is(":checked"));
+                	});
+                	$("#4").click(function(){
+                		alert($("#test1").prop("checked"));//prop()取得HTML元素属性的值
+                	});
+                	$("#5").click(function(){
+                		alert($("#test3").attr("value"));
+                	});
+                });
+       </script>
+</head>
+<body>
+      <input id="test1" type="checkbox">我是好人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="test2" type="checkbox" checked="">我是坏人
+      <input id="test3" value="1"><br/>
+      <button id="1">attr取checked</button>
+      <button id="2">attr取checked</button>
+      <button id="5">test</button><br>
+      <button id="3" style="width: 103px">is()判断</button><br/>
+      <button id="4">prop取checked</button>
+      
+</body>
+</html>

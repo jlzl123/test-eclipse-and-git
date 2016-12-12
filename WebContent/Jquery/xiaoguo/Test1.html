@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>隐藏/显示</title>
+       <script src="../../js/easyui/jquery.min.js"></script>
+       <script>
+               $(document).ready(function(){//$(document)当前文档，就是你看到的整个网页,ready规定当 DOM 完全加载时要执行的函数
+                   $("p").click(function(){//$("p")所有 <p> 元素,click添加触发事件
+                         $(this).hide();
+                   });
+                   $("#p").append("追加文本");//获得id为p的元素的对象
+                   $("p.test").prepend("在开头追加文本")//class为test的p元素的对象
+                   $("h1").click(function(){
+                	   $(this).hide(2000,function(){
+                		   alert("单机下面的按钮可以显示");
+                	   });
+                   });
+                   $("input").click(function(){
+                	   $("h1").show();
+                   });
+                   $("button").click(function(){
+                	   $("#p").toggle();
+                   });
+               });
+</script>
+</head>
+<body>
+    <p>如果你点我，我就会消失。</p>
+    <p>继续点我!</p>
+    <p>接着点我!</p>
+    <p id="p">接着点我!</p>
+    <p class="test">接着点我!</p>
+    <h1>延时2秒隐藏</h1><input type="button" value="显示"/>
+    <button>显示/隐藏</button>
+</body>
+</html>
